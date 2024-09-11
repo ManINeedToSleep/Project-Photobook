@@ -1,0 +1,59 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #D3B683; /* Light brown background color */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+
+#title, #disclaimer, #intro {
+  text-align: center; /* Centers the text */
+  font-family: cursive; /* Applies a cursive font */
+}
+
+footer {
+  text-align: center; /* Centers the text */
+  font-family: cursive; /* Applies a cursive font */
+}
+
+.photobook {
+  max-width: 1200px; /* Sets the maximum width */
+  margin: auto; /* Centers the photobook horizontally */
+  padding: 20px; /* Adds padding around the photobook */
+  display: flex; /* Enables flexbox layout */
+  flex-wrap: wrap; /* Allows wrapping of items */
+  gap: 20px; /* Adds space between items */
+  justify-content: center; /* Centers items horizontally */
+}
+
+.page {
+  background-color: white; /* Sets background color of the page */
+  border: 1px solid #ddd; /* Adds a light gray border */
+  border-radius: 8px; /* Rounds the corners of the border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
+  width: 300px; /* Sets the width of the page */
+  padding: 10px; /* Adds padding inside the page */
+  box-sizing: border-box; /* Includes border and padding in element's total width and height */
+  text-align: center; /* Centers the text */
+}
+
+.photo img {
+  max-width: 100%; /* Ensures the image does not exceed the width of its container */
+  border-radius: 8px; /* Rounds the corners of the image */
+}
+
+.caption {
+  margin-top: 10px; /* Adds space above the caption */
+  font-size: 14px; /* Sets the font size of the caption */
+  color: #333; /* Sets the color of the text */
+}
+
+@media (max-width: 768px) {
+  .photobook {
+      flex-direction: column; /* Stacks items vertically on smaller screens */
+      align-items: center; /* Centers items horizontally */
+  }
+}
