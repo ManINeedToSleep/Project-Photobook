@@ -38,6 +38,11 @@ footer {
   padding: 10px; /* Adds padding inside the page */
   box-sizing: border-box; /* Includes border and padding in element's total width and height */
   text-align: center; /* Centers the text */
+  transition: transform 0.5s ease; /* Smooth transition for the transform property */
+}
+
+.page:hover {
+  animation: zoomOut 0.5s forwards; /* Apply zoom out animation on hover */
 }
 
 .photo img {
@@ -53,7 +58,17 @@ footer {
 
 @media (max-width: 768px) {
   .photobook {
-      flex-direction: column; /* Stacks items vertically on smaller screens */
-      align-items: center; /* Centers items horizontally */
+    flex-direction: column; /* Stacks items vertically on smaller screens */
+    align-items: center; /* Centers items horizontally */
+  }
+}
+
+/* Keyframe animation for zoom out effect */
+@keyframes zoomOut {
+  from {
+    transform: scale(1); /* Start at normal size */
+  }
+  to {
+    transform: scale(1.1); /* Scale up slightly */
   }
 }
