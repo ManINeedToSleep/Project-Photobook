@@ -4,6 +4,7 @@
 <head>
   <title>Online Photo Flipbook</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  
 </head>
 
 <header>
@@ -25,10 +26,14 @@
       <div class="page">
           <a href="https://maps.app.goo.gl/diLUBLMpTFVt9epF7">
               <div class="photo">
-                  <img src="./Img/1000087877.jpg" alt="Photo 1">
+                <img src="./Img/1000087877.jpg" alt="Photo 1">
               </div>
           </a>
           <div class="caption">Double Rainbow near the Gas Station</div>
+          <div class="reactionContainer">
+              <img src="./Img/Heartless.png" alt="Like Icon" class="like-icon" data-liked="false">
+              <button class="toggle-button">Hide</button>          
+          </div>
       </div>
       
       <div class="page">
@@ -38,6 +43,10 @@
             </div>
         </a>
         <div class="caption">Cigarettes After Sex Concert | Front Row</div>
+        <div class="reactionContainer">
+          <img src="./Img/Heartless.png" alt="Like Icon" class="like-icon" data-liked="false">   
+          <button class="toggle-button">Hide</button>     
+        </div>
       </div>
     
       <div class="page">
@@ -47,15 +56,23 @@
               </div>
           </a>
           <div class="caption">Last Group Picture | Bentley Systems Internship</div>
+          <div class="reactionContainer">
+            <img src="./Img/Heartless.png" alt="Like Icon" class="like-icon" data-liked="false">  
+            <button class="toggle-button">Hide</button>        
+          </div>
       </div>
       <!-- Add more pages as needed -->
     </div>
+
+    <!-- Feedback Form -->
+    <div class="feedback-form" id="feedbackForm"></div>
 
     <footer>
       For more inquiries, please contact us at: [INSERT NUMBER/EMAIL HERE]
     </footer>
   </main>
   <script src="script.js"></script>
+  <script src="https://use.fontawesome.com/fe459689b4.js"></script>
 </body>
 
 </html>
