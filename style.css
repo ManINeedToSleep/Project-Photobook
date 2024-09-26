@@ -35,7 +35,7 @@ footer {
   border-radius: 8px; /* Rounds the corners of the border */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
   width: 300px; /* Sets the width of the page */
-  padding: 10px; /* Adds padding inside the page */
+  padding: 0px; /* Adds padding inside the page */
   box-sizing: border-box; /* Includes border and padding in element's total width and height */
   text-align: center; /* Centers the text */
   transition: transform 0.5s ease; /* Smooth transition for the transform property */
@@ -46,8 +46,64 @@ footer {
 }
 
 .photo img {
-  max-width: 100%; /* Ensures the image does not exceed the width of its container */
+  width: 100%; /* Ensure the image takes the full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 400px; /* Set a maximum height to keep images consistent */
   border-radius: 8px; /* Rounds the corners of the image */
+}
+
+.reactionContainer {
+  display: flex;
+  justify-content: flex-start; /* Aligns items to the left */
+  align-items: center; /* Centers items vertically */
+  margin: 10px; /* Margin to prevent touching the border */
+}
+
+.like-dislike-wrapper {
+  display: flex; /* Use flexbox for the like/dislike buttons */
+  margin-right: 100px;
+  margin-left: 20px;
+}
+
+.zoom {
+  transition: transform 0.2s; /* Adjust duration to match JS */
+  transform: scale(1.1); /* Scale up effect */
+}
+
+.btn {
+  cursor: pointer;
+  outline: 0;
+  color: #AAA;
+  background: none;
+  border: none;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.like-btn.green {
+  color: green;
+}
+
+.dislike-btn.red {
+  color: red;
+}
+
+.toggle-button {
+  background-color: #8d6309; /* Same color as the feedback button */
+  color: white;
+  border: none; /* No border */
+  border-radius: 8px; /* Rounds the corners of the border */
+  padding: 5px 10px; /* Padding around the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-right: 25px;
+}
+
+.toggle-button:hover {
+  background-color: #6c4c07; /* Darker shade on hover */
 }
 
 .caption {
@@ -56,42 +112,16 @@ footer {
   color: #333; /* Sets the color of the text */
 }
 
-.reactionContainer {
-  text-align: justify;
-}
-
-.like-icon {
-  margin-top: 10px;
-  margin-left: 10px;
-  text-align: left;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  opacity: 0; /* Icon is hidden by default */
-  pointer-events: none; /* Icon is uninteractable by default */
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effects */
-}
-
-/* Hover effect for the entire Polaroid */
-.page:hover .like-icon {
-  opacity: 1; /* Icon becomes visible when the figure is hovered */
-  pointer-events: auto; /* Icon becomes interactable when visible */
-  transform: scale(1); /* Reset scale if it was changed before */
-}
-
-/* Additional hover effect for the icon itself when visible */
-.page:hover .like-icon:hover {
-  transform: scale(1.2); /* Enhanced scaling on hover when visible */
-}
-
-/* Styles for the feedback form */
 .feedback-form {
-  display: none;
-  flex-direction: column;
-  margin: 20px;
+  display: none; /* Initially hidden */
+  flex-direction: column; /* Stack items vertically */
+  margin: 20px; /* Margin around the form */
+  margin-left: 180px;
+  margin-right: 180px;
 }
 
-.feedback-form select {
+.feedback-form select,
+.feedback-form textarea {
   padding: 10px;
   margin-bottom: 10px;
   font-family: cursive; /* Applies a cursive font */
@@ -101,40 +131,20 @@ footer {
 }
 
 .feedback-form textarea {
-  padding: 10px;
-  height: 100px;
-  font-family: cursive; /* Applies a cursive font */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
-  border: 1px solid #ddd; /* Adds a light gray border */
-  border-radius: 8px; /* Rounds the corners of the border */
+  height: 100px; /* Sets height for textarea */
 }
 
 .feedback-form button {
   padding: 10px 20px;
-  background-color: #8d6309;
+  background-color: #8d6309; /* Button background color */
   border: 1px solid #ddd; /* Adds a light gray border */
   border-radius: 8px; /* Rounds the corners of the border */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
-  color: white;
-  cursor: pointer;
-
+  color: white; /* Text color */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .feedback-form button:hover {
-  background-color: #6c4c07;
-}
-
-.toggle-button {
-  background-color: #8d6309; /* Same color as the feedback button */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-left: 60%; /* Space between like icon and button */
-}
-
-.toggle-button:hover {
   background-color: #6c4c07; /* Darker shade on hover */
 }
 

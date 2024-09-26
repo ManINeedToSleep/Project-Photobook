@@ -1,78 +1,85 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Online Photo Flipbook</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Photo Flipbook</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://use.fontawesome.com/fe459689b4.js"></script>
 </head>
 
-<header>
-  <!-- To do List.
-  1. Title. 
-  2. Notebook Aesthetic. 
-  3. Allow Images.
-  -->
-</header>
-
 <body>
-  <main>
+<main>
     <h1 id="title">Sleeper's Online Photo Flipbook</h1>
     <p id="intro">Ever need a place to keep your pictures safe for a very long time? Well look no further! As we keep your pictures safe, indefinitely.</p>
     <p id="disclaimer">Disclaimer - We are a work in progress! This is an example of what might be the end result of our website.</p>
-    
-    <!-- The 'Book/Row'-->
-    <div class="photobook">
-      <div class="page">
-          <a href="https://maps.app.goo.gl/diLUBLMpTFVt9epF7">
-              <div class="photo">
-                <img src="./Img/1000087877.jpg" alt="Photo 1">
-              </div>
-          </a>
-          <div class="caption">Double Rainbow near the Gas Station</div>
-          <div class="reactionContainer">
-              <img src="./Img/Heartless.png" alt="Like Icon" class="like-icon" data-liked="false">
-              <button class="toggle-button">Hide</button>          
-          </div>
-      </div>
-      
-      <div class="page">
-        <a href="https://theindyreview.com/2024/07/11/album-review-cigarettes-after-sex-xs/">
-            <div class="photo">
-                <img src="./Img/1000087654.jpg" alt="Photo 2">
-            </div>
-        </a>
-        <div class="caption">Cigarettes After Sex Concert | Front Row</div>
-        <div class="reactionContainer">
-          <img src="./Img/Heartless.png" alt="Like Icon" class="like-icon" data-liked="false">   
-          <button class="toggle-button">Hide</button>     
-        </div>
-      </div>
-    
-      <div class="page">
-          <a href="https://maps.app.goo.gl/gvV7ZqrNDGQ2iPer5">
-              <div class="photo">
-                  <img src="./Img/1000085892.jpg" alt="Photo 3">
-              </div>
-          </a>
-          <div class="caption">Last Group Picture | Bentley Systems Internship</div>
-          <div class="reactionContainer">
-            <img src="./Img/Heartless.png" alt="Like Icon" class="like-icon" data-liked="false">  
-            <button class="toggle-button">Hide</button>        
-          </div>
-      </div>
-      <!-- Add more pages as needed -->
-    </div>
+
+    <!-- The 'Book/Row' -->
+    <section class="photobook">
+        <article class="page">
+            <a href="https://maps.app.goo.gl/diLUBLMpTFVt9epF7">
+                <figure class="photo">
+                    <img src="./Img/1000087877.jpg" alt="Photo 1">
+                </figure>
+            </a>
+            <figcaption class="caption">Double Rainbow near the Gas Station</figcaption>
+            <aside class="reactionContainer">
+                <div class="like-dislike-wrapper">
+                    <button class="btn like-btn" onclick="toggleLike(this)"><i class="fa fa-thumbs-up fa-lg"></i></button>
+                    <button class="btn dislike-btn" onclick="toggleDislike(this)"><i class="fa fa-thumbs-down fa-lg"></i></button>
+                </div>
+                <button class="toggle-button">Hide</button>
+            </aside>
+        </article>
+
+        <article class="page">
+            <a href="https://theindyreview.com/2024/07/11/album-review-cigarettes-after-sex-xs/">
+                <figure class="photo">
+                    <img src="./Img/1000087654.jpg" alt="Photo 2">
+                </figure>
+            </a>
+            <figcaption class="caption">Cigarettes After Sex Concert | Front Row</figcaption>
+            <aside class="reactionContainer">
+                <div class="like-dislike-wrapper">
+                    <button class="btn like-btn" onclick="toggleLike(this)"><i class="fa fa-thumbs-up fa-lg"></i></button>
+                    <button class="btn dislike-btn" onclick="toggleDislike(this)"><i class="fa fa-thumbs-down fa-lg"></i></button>
+                </div>
+                <button class="toggle-button">Hide</button>
+            </aside>
+        </article>
+
+        <article class="page">
+            <a href="https://maps.app.goo.gl/gvV7ZqrNDGQ2iPer5">
+                <figure class="photo">
+                    <img src="./Img/1000085892.jpg" alt="Photo 3">
+                </figure>
+            </a>
+            <figcaption class="caption">Last Group Picture | Bentley Systems Internship</figcaption>
+            <aside class="reactionContainer">
+                <div class="like-dislike-wrapper">
+                    <button class="btn like-btn" onclick="toggleLike(this)"><i class="fa fa-thumbs-up fa-lg"></i></button>
+                    <button class="btn dislike-btn" onclick="toggleDislike(this)"><i class="fa fa-thumbs-down fa-lg"></i></button>
+                </div>
+                <button class="toggle-button">Hide</button>
+            </aside>
+        </article>
+        <!-- Add more pages as needed -->
+    </section>
 
     <!-- Feedback Form -->
-    <div class="feedback-form" id="feedbackForm"></div>
+    <aside class="feedback-form" id="feedbackForm" style="display: none;">
+      <!-- Feedback form will be populated by JavaScript -->
+  </aside>
 
-    <footer>
-      For more inquiries, please contact us at: [INSERT NUMBER/EMAIL HERE]
-    </footer>
-  </main>
-  <script src="script.js"></script>
-  <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+  <footer>
+      For more inquiries, please contact us at: <a href="mailto:lerolerolerolerolero@gmail.com">lerolerolerolerolero@gmail.com</a>
+  </footer>
+  <br>
+</main>
+<script src="script.js"></script>
+<script>
+  // Call the setupFeedbackForm function when the page loads
+  document.addEventListener('DOMContentLoaded', setupFeedbackForm);
+</script>
 </body>
-
 </html>

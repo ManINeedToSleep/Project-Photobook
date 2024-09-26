@@ -1,86 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize like/dislike functionality
-    const likeIcons = document.querySelectorAll('.like-icon');
-    likeIcons.forEach(icon => {
-      icon.addEventListener('click', () => {
-        const isLiked = icon.getAttribute('data-liked') === 'true';
-        if (isLiked) {
-          icon.src = './Img/Heartless.png';
-          icon.setAttribute('data-liked', 'false');
-        } else {
-          icon.src = './Img/HeartLike.png';
-          icon.setAttribute('data-liked', 'true');
-        }
-      });
-    });
-
-    // Toggle visibility of pages
-    const toggleButtons = document.querySelectorAll('.toggle-button');
-    toggleButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const page = button.closest('.page'); // Get the closest page container
-        if (page.style.display === 'none') {
-          page.style.display = 'block'; // Show the page
-          button.textContent = 'Hide'; // Change button text to 'Hide'
-        } else {
-          page.style.display = 'none'; // Hide the page
-          button.textContent = 'Show'; // Change button text to 'Show'
-        }
-      });
-    });
-  
-    // Dynamically load feedback form
-    const feedbackForm = document.getElementById('feedbackForm');
-    feedbackForm.style.display = 'flex';
+  initializeLikeButtons();
+  setupFeedbackForm();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Existing code...
+const posts = document.querySelectorAll('.page'); // Select all posts (your photo containers)
+posts.forEach(post => {
+    const likeButton = post.querySelector('.like-btn');
+    const dislikeButton = post.querySelector('.dislike-btn');
+    let likeActive = false; // Initial state for like
+    let dislikeActive = false; // Initial state for dislike
 
-    // Initialize feedback form dynamically
-    const feedbackForm = document.getElementById('feedbackForm');
+    // Add click event listener to the "like" button
+    likeButton.addEventListener('click', function() {
+        likeActive = !likeActive; // Toggle like state
+        this.classList.toggle('green'); // Change the button color
+        // Add the zoom effect class
+        this.classList.add('zoom');
+        // Remove the zoom class after a short delay
+        setTimeout(() => {
+            this.classList.remove('zoom');
+        }, 200); // Match this duration to your CSS transition duration
 
-    // Create select element
-    const feedbackSelect = document.createElement('select');
-    feedbackSelect.id = 'feedbackType';
-
-    // Create options for the select element
-    const options = [
-        { value: 'general', text: 'General Feedback' },
-        { value: 'enhancement', text: 'App Enhancement' },
-        { value: 'comment', text: 'General Comment' }
-    ];
-
-    options.forEach(option => {
-        const opt = document.createElement('option');
-        opt.value = option.value;
-        opt.textContent = option.text;
-        feedbackSelect.appendChild(opt);
+        // If like is active, deactivate dislike
+        if (likeActive) {
+            dislikeActive = false; // Ensure dislike is inactive
+            dislikeButton.classList.remove('red'); // Change the dislike button color
+        }
     });
 
-    // Append select to feedback form
-    feedbackForm.appendChild(feedbackSelect);
+    // Add click event listener to the "dislike" button
+    dislikeButton.addEventListener('click', function() {
+        dislikeActive = !dislikeActive; // Toggle dislike state
+        this.classList.toggle('red'); // Change the button color
+        // Add the zoom effect class
+        this.classList.add('zoom');
+        // Remove the zoom class after a short delay
+        setTimeout(() => {
+            this.classList.remove('zoom');
+        }, 200); // Match this duration to your CSS transition duration
 
-    // Add textarea and submit button
-    const feedbackTextarea = document.createElement('textarea');
-    feedbackTextarea.placeholder = 'Enter your feedback here...';
-    feedbackForm.appendChild(feedbackTextarea);
-
-    const submitButton = document.createElement('button');
-    submitButton.type = 'submit';
-    submitButton.textContent = 'Submit Feedback';
-    feedbackForm.appendChild(submitButton);
-
-    // Display feedback form
-    feedbackForm.style.display = 'flex';
-
-    // Add event listener for the submit button (optional)
-    submitButton.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent page reload
-        const feedbackType = feedbackSelect.value;
-        const feedbackText = feedbackTextarea.value;
-        console.log(`Feedback Type: ${feedbackType}, Feedback: ${feedbackText}`);
-        // Handle feedback submission here...
+        // If dislike is active, deactivate like
+        if (dislikeActive) {
+            likeActive = false; // Ensure like is inactive
+            likeButton.classList.remove('green'); // Change the like button color
+        }
     });
 });
 
+
+
+
+// Function to set up the feedback form
+const setupFeedbackForm = () => {
+  const feedbackForm = document.getElementById('feedbackForm');
+  feedbackForm.style.display = 'flex';
+
+  const feedbackSelect = document.createElement('select');
+  feedbackSelect.id = 'feedbackType';
+
+  const options = [
+    { value: 'general', text: 'General Feedback' },
+    { value: 'enhancement', text: 'App Enhancement' },
+    { value: 'comment', text: 'General Comment' }
+  ];
+
+  options.forEach(option => {
+    const opt = document.createElement('option');
+    opt.value = option.value;
+    opt.textContent = option.text;
+    feedbackSelect.appendChild(opt);
+  });
+
+  feedbackForm.appendChild(feedbackSelect);
+
+  const feedbackTextarea = document.createElement('textarea');
+  feedbackTextarea.placeholder = 'Enter your feedback here...';
+  feedbackForm.appendChild(feedbackTextarea);
+
+  const submitButton = document.createElement('button');
+  submitButton.type = 'submit';
+  submitButton.textContent = 'Submit Feedback';
+  feedbackForm.appendChild(submitButton);
+
+  submitButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent page reload
+    const feedbackType = feedbackSelect.value;
+    const feedbackText = feedbackTextarea.value;
+    console.log(`Feedback Type: ${feedbackType}, Feedback: ${feedbackText}`);
+    // Handle feedback submission here...
+  });
+};
