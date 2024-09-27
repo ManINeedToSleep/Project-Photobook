@@ -47,8 +47,61 @@ posts.forEach(post => {
     });
 });
 
+// Function to set up toggle buttons for pages
+const setupToggleButtons = () => {
+  const toggleButtons = document.querySelectorAll('.toggle-button');
+  toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+          const page = button.closest('.page'); // Get the closest page container
+          if (page.style.display === 'none' || !page.style.display) {
+              page.style.display = 'block'; // Show the page
+              button.textContent = 'Hide'; // Change button text to 'Hide'
+          } else {
+              page.style.display = 'none'; // Hide the page
+              button.textContent = 'Show'; // Change button text to 'Show'
+          }
+      });
+  });
+};
+
+// Call the setup function after DOM content is loaded
+document.addEventListener('DOMContentLoaded', setupToggleButtons);
+
+// Function to copy the current URL to the clipboard
+const copyUrl = (btn) => {
+  const url = window.location.href; // Get the current URL
+  navigator.clipboard.writeText(url).then(() => {
+      // Optionally, you can provide feedback that the URL was copied
+      alert("URL copied to clipboard!");
+  }).catch(err => {
+      console.error("Failed to copy: ", err);
+  });
+};
 
 
+// Function to toggle the theme
+const toggleTheme = () => {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
+  const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+  localStorage.setItem('theme', theme);
+};
+
+// Apply the saved theme from localStorage on load
+const applySavedTheme = () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('slideThree').checked = true; // Check the toggle
+  }
+};
+
+// Event listener for the theme toggle button
+document.getElementById('slideThree').addEventListener('change', toggleTheme);
+
+document.addEventListener('DOMContentLoaded', () => {
+  applySavedTheme(); // Apply the saved theme on load
+});
 
 // Function to set up the feedback form
 const setupFeedbackForm = () => {
