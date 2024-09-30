@@ -103,14 +103,28 @@ document.addEventListener('DOMContentLoaded', () => {
   applySavedTheme(); // Apply the saved theme on load
 });
 
-// Function to set up the feedback form
 const setupFeedbackForm = () => {
   const feedbackForm = document.getElementById('feedbackForm');
   feedbackForm.style.display = 'flex';
 
+  // Create Username input
+  const usernameInput = document.createElement('input');
+  usernameInput.type = 'text';
+  usernameInput.placeholder = 'Enter your username...';
+  usernameInput.id = 'username';
+  feedbackForm.appendChild(usernameInput);
+
+  // Create Email input
+  const emailInput = document.createElement('input');
+  emailInput.type = 'email';
+  emailInput.placeholder = 'Enter your email...';
+  emailInput.id = 'email';
+  feedbackForm.appendChild(emailInput);
+
+  // Create Feedback Type dropdown
   const feedbackSelect = document.createElement('select');
   feedbackSelect.id = 'feedbackType';
-
+  
   const options = [
     { value: 'general', text: 'General Feedback' },
     { value: 'enhancement', text: 'App Enhancement' },
@@ -126,20 +140,57 @@ const setupFeedbackForm = () => {
 
   feedbackForm.appendChild(feedbackSelect);
 
+  // Create Feedback Textarea
   const feedbackTextarea = document.createElement('textarea');
   feedbackTextarea.placeholder = 'Enter your feedback here...';
   feedbackForm.appendChild(feedbackTextarea);
 
+  // Create Submit Button
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';
   submitButton.textContent = 'Submit Feedback';
   feedbackForm.appendChild(submitButton);
 
+  // Load saved values from localStorage
+  usernameInput.value = localStorage.getItem('username') || '';
+  emailInput.value = localStorage.getItem('email') || '';
+  feedbackSelect.value = localStorage.getItem('feedbackType') || 'general';
+  feedbackTextarea.value = localStorage.getItem('feedbackText') || '';
+
+  // Save values to localStorage on input
+  usernameInput.addEventListener('input', () => {
+    localStorage.setItem('username', usernameInput.value);
+  });
+
+  emailInput.addEventListener('input', () => {
+    localStorage.setItem('email', emailInput.value);
+  });
+
+  feedbackSelect.addEventListener('change', () => {
+    localStorage.setItem('feedbackType', feedbackSelect.value);
+  });
+
+  feedbackTextarea.addEventListener('input', () => {
+    localStorage.setItem('feedbackText', feedbackTextarea.value);
+  });
+
+  // Handle feedback submission
   submitButton.addEventListener('click', (e) => {
     e.preventDefault(); // Prevent page reload
+    const username = usernameInput.value;
+    const email = emailInput.value;
     const feedbackType = feedbackSelect.value;
     const feedbackText = feedbackTextarea.value;
-    console.log(`Feedback Type: ${feedbackType}, Feedback: ${feedbackText}`);
-    // Handle feedback submission here...
+
+    console.log(`Username: ${username}, Email: ${email}, Feedback Type: ${feedbackType}, Feedback: ${feedbackText}`);
+    
+    // Show popup message
+    alert("Feedback Sent!");
+
+    // Clear localStorage after submission
+    localStorage.removeItem('feedbackType');
+    localStorage.removeItem('feedbackText');
+    
+    // Optionally, you could handle feedback submission to a server here...
   });
 };

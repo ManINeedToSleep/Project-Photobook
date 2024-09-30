@@ -120,6 +120,7 @@ footer {
   margin-right: 180px;
 }
 
+.feedback-form input,
 .feedback-form select,
 .feedback-form textarea {
   padding: 10px;
@@ -147,6 +148,7 @@ footer {
 .feedback-form button:hover {
   background-color: #6c4c07; /* Darker shade on hover */
 }
+
 
 /* .slideThree */
 .slideThree {
