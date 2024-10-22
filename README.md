@@ -11,7 +11,6 @@ Welcome to Sleeper's Online Photo Flipbook! This project is a web application de
   - Light Mode
   - Dark Mode
 - **Feedback Form**: Users can submit feedback regarding their experience, including options for general comments and suggestions for enhancements.
-- **Responsive Design**: The layout adjusts seamlessly for mobile and desktop views.
 - **Animations**: Smooth transitions and hover effects enhance user engagement.
   
 ## Getting Started
