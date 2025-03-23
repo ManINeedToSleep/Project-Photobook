@@ -3,90 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Photo Flipbook</title>
+    <meta name="description" content="A beautiful online photo flipbook for storing and sharing your precious memories">
+    <meta name="keywords" content="photo, flipbook, memories, gallery, images">
+    <meta name="author" content="Sleeper">
+    <title>Sleeper's Online Photo Flipbook</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📷</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Custom Stylesheet -->
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="https://use.fontawesome.com/fe459689b4.js"></script>
 </head>
 
 <body>
 <main>
-    <h1 id="title">Sleeper's Online Photo Flipbook</h1>
-    <div class="slideThree">
-        <input type="checkbox" id="slideThree" name="check" />
-        <label for="slideThree"></label>
-    </div>
-    <p id="intro">Ever need a place to keep your pictures safe for a very long time? Well look no further! As we keep your pictures safe, indefinitely.</p>
-    <p id="disclaimer">Disclaimer - We are a work in progress! This is an example of what might be the end result of our website.</p>
+    <header>
+        <h1 id="title">Sleeper's Online Photo Flipbook</h1>
+        <div class="slideThree">
+            <input type="checkbox" id="slideThree" name="check" />
+            <label for="slideThree"></label>
+        </div>
+        <p id="intro">Ever need a place to keep your pictures safe for a very long time? Well look no further! We keep your memories safe, indefinitely.</p>
+        <p id="disclaimer">Disclaimer - We are a work in progress! This is an example of what might be the end result of our website.</p>
+    </header>
 
-    <!-- The 'Book/Row' -->
+    <!-- Photo Gallery -->
     <section class="photobook">
         <article class="page">
-            <a href="https://maps.app.goo.gl/diLUBLMpTFVt9epF7">
+            <a href="https://maps.app.goo.gl/diLUBLMpTFVt9epF7" target="_blank" rel="noopener">
                 <figure class="photo">
-                    <img src="./Img/1000087877.jpg" alt="Photo 1">
+                    <img src="./Img/1000087877.jpg" alt="Double Rainbow near the Gas Station" loading="lazy">
                 </figure>
             </a>
             <figcaption class="caption">Double Rainbow near the Gas Station</figcaption>
             <aside class="reactionContainer">
                 <div class="like-dislike-wrapper">
-                    <button class="btn like-btn" onclick="toggleLike(this)"><i class="fa fa-thumbs-up fa-lg"></i></button>
-                    <button class="btn dislike-btn" onclick="toggleDislike(this)"><i class="fa fa-thumbs-down fa-lg"></i></button>
+                    <button class="btn like-btn" aria-label="Like this photo">
+                        <i class="fa fa-thumbs-up fa-lg"></i>
+                    </button>
+                    <button class="btn dislike-btn" aria-label="Dislike this photo">
+                        <i class="fa fa-thumbs-down fa-lg"></i>
+                    </button>
                 </div>
-                <button class="share-button" onclick="copyUrl(this)">Share</button>
-                <button class="toggle-button">Hide</button>
+                <button class="share-button" aria-label="Share this photo">
+                    <i class="fa fa-share-alt"></i> Share
+                </button>
+                <button class="toggle-button" aria-label="Hide this photo">Hide</button>
             </aside>
         </article>
 
         <article class="page">
-            <a href="https://theindyreview.com/2024/07/11/album-review-cigarettes-after-sex-xs/">
+            <a href="https://theindyreview.com/2024/07/11/album-review-cigarettes-after-sex-xs/" target="_blank" rel="noopener">
                 <figure class="photo">
-                    <img src="./Img/1000087654.jpg" alt="Photo 2">
+                    <img src="./Img/1000087654.jpg" alt="Cigarettes After Sex Concert Front Row" loading="lazy">
                 </figure>
             </a>
             <figcaption class="caption">Cigarettes After Sex Concert | Front Row</figcaption>
             <aside class="reactionContainer">
                 <div class="like-dislike-wrapper">
-                    <button class="btn like-btn" onclick="toggleLike(this)"><i class="fa fa-thumbs-up fa-lg"></i></button>
-                    <button class="btn dislike-btn" onclick="toggleDislike(this)"><i class="fa fa-thumbs-down fa-lg"></i></button>
+                    <button class="btn like-btn" aria-label="Like this photo">
+                        <i class="fa fa-thumbs-up fa-lg"></i>
+                    </button>
+                    <button class="btn dislike-btn" aria-label="Dislike this photo">
+                        <i class="fa fa-thumbs-down fa-lg"></i>
+                    </button>
                 </div>
-                <button class="share-button" onclick="copyUrl(this)">Share</button>
-                <button class="toggle-button">Hide</button>
+                <button class="share-button" aria-label="Share this photo">
+                    <i class="fa fa-share-alt"></i> Share
+                </button>
+                <button class="toggle-button" aria-label="Hide this photo">Hide</button>
             </aside>
         </article>
 
         <article class="page">
-            <a href="https://maps.app.goo.gl/gvV7ZqrNDGQ2iPer5">
+            <a href="https://maps.app.goo.gl/gvV7ZqrNDGQ2iPer5" target="_blank" rel="noopener">
                 <figure class="photo">
-                    <img src="./Img/1000085892.jpg" alt="Photo 3">
+                    <img src="./Img/1000085892.jpg" alt="Last Group Picture Bentley Systems Internship" loading="lazy">
                 </figure>
             </a>
             <figcaption class="caption">Last Group Picture | Bentley Systems Internship</figcaption>
             <aside class="reactionContainer">
                 <div class="like-dislike-wrapper">
-                    <button class="btn like-btn" onclick="toggleLike(this)"><i class="fa fa-thumbs-up fa-lg"></i></button>
-                    <button class="btn dislike-btn" onclick="toggleDislike(this)"><i class="fa fa-thumbs-down fa-lg"></i></button>
+                    <button class="btn like-btn" aria-label="Like this photo">
+                        <i class="fa fa-thumbs-up fa-lg"></i>
+                    </button>
+                    <button class="btn dislike-btn" aria-label="Dislike this photo">
+                        <i class="fa fa-thumbs-down fa-lg"></i>
+                    </button>
                 </div>
-                <button class="share-button" onclick="copyUrl(this)">Share</button>
-                <button class="toggle-button">Hide</button>
+                <button class="share-button" aria-label="Share this photo">
+                    <i class="fa fa-share-alt"></i> Share
+                </button>
+                <button class="toggle-button" aria-label="Hide this photo">Hide</button>
             </aside>
         </article>
-        <!-- Add more pages as needed -->
     </section>
 
-    <!-- Feedback Form -->
-    <aside class="feedback-form" id="feedbackForm" style="display: none;">
-      <!-- Feedback form will be populated by JavaScript -->
-  </aside>
+    <!-- Upload Button (Visual only for now) -->
+    <div class="upload-container">
+        <button class="upload-button">
+            <i class="fa fa-plus"></i> Add New Photo
+        </button>
+    </div>
 
-  <footer>
-      For more inquiries, please contact us at: <a href="mailto:lerolerolerolerolero@gmail.com">lerolerolerolerolero@gmail.com</a>
-  </footer>
-  <br>
+    <!-- Feedback Form -->
+    <aside class="feedback-form" id="feedbackForm">
+        <!-- Feedback form will be populated by JavaScript -->
+    </aside>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <p>For more inquiries, contact us at: <a href="mailto:lerolerolerolerolero@gmail.com">lerolerolerolerolero@gmail.com</a></p>
+            <p>&copy; 2024 Sleeper's Online Photo Flipbook. All rights reserved.</p>
+        </div>
+    </footer>
 </main>
+
+<!-- Scroll to top button -->
+<button id="scrollToTop" aria-label="Scroll to top">
+    <i class="fa fa-arrow-up"></i>
+</button>
+
 <script src="script.js"></script>
-<script>
-  // Call the setupFeedbackForm function when the page loads
-  document.addEventListener('DOMContentLoaded', setupFeedbackForm);
-</script>
 </body>
 </html>
